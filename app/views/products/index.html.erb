@@ -1,0 +1,16 @@
+<h1>Full Inventory</h1>
+<br>
+<div class="container-fluid">
+<div class="row">
+    <% @products.each do |product| %>
+      <div class="col-md-3">
+        <h3><a href="/products/<%= product.id %>"><%= product.name %></a></h3>
+        <h3><%= product.price %></h3>
+        <h3><img src=<%= product.image %> style="width:300px;height:300px;"></h3>
+        <h5><%= product.description %></h5>
+        <h5><a data-confirm="Are you sure?" data-method="delete" href="/products/<%= product.id %>" rel="nofollow">Delete</a></h5>
+        <hr>
+      </div>
+    <% end %>
+</div>
+</div>
