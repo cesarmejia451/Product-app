@@ -1,8 +1,11 @@
-
-<div class="col-md-3">
+<div class="col-md-6">
   <h1><%= @product.name %></h1>
   <h3><%= @product.price %></h3>
   <h3><img src=<%= @product.image %> style="width:300px;height:300px;"></h3>
   <h5><%= @product.description %></h5>
   <br>
+  <%= link_to "Home", "/products" %>
+  <%= link_to "Edit", "/products/#{@product.id}/edit" %>
+  <%= link_to "Delete", "/products/#{@product.id}", method: :delete, data:{confirm: "Are you sure?"} %>
 </div>
+
