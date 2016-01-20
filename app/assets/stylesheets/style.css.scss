@@ -1,8 +1,15 @@
 body {
 font-family: "Arial Narrow",Arial,sans-serif;
 background-image: url("tweed.png");
-color: gray;
+color: black;
 
 }
 
+.list-view {
+  height: 600px;
+}
 
+.product-image {
+  height: 300px !important;
+  width: 300px !important;
+}

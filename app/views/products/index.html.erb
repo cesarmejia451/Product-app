@@ -1,19 +1,25 @@
-<h1>Full Inventory</h1>
-<br>
-
-<%= link_to "Add a new beer to the inventory", "/products/new" %>
+<div class="jumbotron">
+  <div class="container">
+    <h1>Full Inventory</h1>
+    <p>Please see the listing below to view Chicago's best microbrews!</p>
+    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+  </div>
+</div>
 
 <div class="container">
-<div class="row">
+  <div class="row">
     <% @products.each do |product| %>
-      <div class="col-md-4">
-        <h3><a href="/products/<%= product.id %>"><%= product.name %></a></h3>
-        <h3><%= product.price %></h3>
-        <h3><img src=<%= product.image %> style="width:300px;height:300px;"></h3>
-        <h5><%= product.description %></h5>
-        <h5><a data-confirm="Are you sure?" data-method="delete" href="/products/<%= product.id %>" rel="nofollow">Delete</a></h5>
-        <hr>
+      <div class="col-md-4 col-sm-6 list-view">
+        <div class="thumbnail">
+          <h4><a href="/products/<%= product.id %>"><%= product.name %></a></h4>
+          <h4><%= product.price %></h4>
+          <%= image_tag product.image, class: "img-responsive product-image" %>
+          <h5><%= product.description %></h5>
+          <h5><a data-confirm="Are you sure?" data-method="delete" href="/products/<%= product.id %>" rel="nofollow">Delete</a></h5>
+        </div>
       </div>
-    <% end %>
+      <% end %>
+  </div>
 </div>
-</div>
+
+<%= link_to "Add a new beer to the inventory", "/products/new" %>
