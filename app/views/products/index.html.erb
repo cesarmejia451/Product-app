@@ -12,9 +12,8 @@
       <div class="col-md-4 col-sm-6 list-view">
         <div class="thumbnail">
           <h4><a href="/products/<%= product.id %>"><%= product.name %></a></h4>
-          <h4><%= product.price %></h4>
+          <h4>$ <%= product.price %></h4>
           <%= image_tag product.image, class: "img-responsive product-image" %>
-          <h5><%= product.description %></h5>
           <h5><a data-confirm="Are you sure?" data-method="delete" href="/products/<%= product.id %>" rel="nofollow">Delete</a></h5>
         </div>
       </div>
