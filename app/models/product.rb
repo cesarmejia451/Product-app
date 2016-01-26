@@ -1,7 +1,10 @@
 class Product < ActiveRecord::Base
 
+  belongs_to :supplier
+  has_many :images
+
   def sale_message
-    if price.to_i < 2
+    if price.to_i < 9
       "Discount Item!"
     else
       "On Sale"
@@ -15,4 +18,5 @@ class Product < ActiveRecord::Base
   def total
     price.to_i + tax
   end
+
 end
