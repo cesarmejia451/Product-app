@@ -6,7 +6,10 @@
   <h3>Tax: $ <%= @product.tax %></h3>
   <hr>
   <h3>Total: $ <%= @product.total %></h3>
-  <%= image_tag @product.image, class: "img-responsive product-image" %>
+  <p>Images:</p>
+  <% @product.images.each do |image| %>
+    <%= image_tag image.url, class: "img-responsive product-image" %>
+  <% end %>
   <h5><%= @product.description %></h5>
   <br>
   <%= link_to "Home", "/products" %>

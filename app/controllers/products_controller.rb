@@ -10,6 +10,8 @@ class ProductsController < ApplicationController
     if params[:discount]
       @products = @products.where("price < ?", params[:discount])
     end
+
+    
   end
 
   def beer
@@ -20,13 +22,16 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @supplier = @product.supplier
 
+
   end
 
   def new
   end
 
   def create
-    @product = Product.create({name: params[:name], price: params[:price], image: params[:image], description: params[:description]})
+    @product = Product.create({name: params[:name], price: params[:price], supplier_id: params[:supplier][:supplier_id], image: params[:image], description: params[:description]})
+
+    Image.create(url: params[:image], product_id: @product.id) if params[:image] != ""
 
     flash[:success] = "New Employee Created!"
     redirect_to "/products"
@@ -39,7 +44,9 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
 
-    @product.update({name: params[:name], price: params[:price], image: params[:image],description: params[:description]})
+    @product.update({name: params[:name], price: params[:price], supplier_id: params[:supplier][:supplier_id], image: params[:image], description: params[:description]})
+
+    Image.create(url: params[:image], product_id: @product.id) if params[:image] != ""
 
     flash[:success] = "Inventory Updated!"
     redirect_to "/products/#{@product.id}"
