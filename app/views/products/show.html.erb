@@ -12,6 +12,20 @@
   <% end %>
   <h5><%= @product.description %></h5>
   <br>
+
+  <%= form_tag '/orders', method: :post do %>
+    <div>
+      <%= label_tag :quantity %>
+      <%= text_field_tag :quantity %>
+    </div>
+      <%= label_tag :product_id %>
+      <%= text_field_tag :product_id %>
+
+      <%= submit_tag "Buy Now!" %>
+
+  <% end %>
+
+  <hr>
   <%= link_to "Home", "/products" %>
   <%= link_to "Edit", "/products/#{@product.id}/edit" %>
   <%= link_to "Delete", "/products/#{@product.id}", method: :delete, data:{confirm: "Are you sure?"} %>

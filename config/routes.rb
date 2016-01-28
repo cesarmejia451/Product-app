@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   post '/suppliers' => 'suppliers#create'
 
   get 'products/random' => 'products#random'
+  
   get 'products/:id' => 'products#show'
+  post '/orders' => 'orders#create'
+
+  get 'orders/:id' => 'orders#show'
 
   get 'products/:id/edit' => 'products#edit'
   patch 'products/:id' => 'products#update'
