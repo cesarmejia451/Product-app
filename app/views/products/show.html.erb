@@ -14,14 +14,13 @@
   <br>
 
   <%= form_tag '/orders', method: :post do %>
-    <div>
+    <div class="form-group">
       <%= label_tag :quantity %>
       <%= text_field_tag :quantity %>
     </div>
-      <%= label_tag :product_id %>
-      <%= text_field_tag :product_id %>
+      <%= hidden_field_tag :product_id, @product.id %>
 
-      <%= submit_tag "Buy Now!" %>
+      <%= submit_tag "Buy Now!", class: "btn btn-default" %>
 
   <% end %>
 

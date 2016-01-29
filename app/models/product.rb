@@ -5,7 +5,7 @@ class Product < ActiveRecord::Base
   has_many :orders
 
   def sale_message
-    if price.to_i < 9
+    if price < 9
       "Discount Item!"
     else
       "On Sale"
@@ -13,11 +13,11 @@ class Product < ActiveRecord::Base
   end
 
   def tax 
-    price.to_i * 0.09 
+    price * 0.09 
   end
 
   def total
-    price.to_i + tax
+    price + tax
   end
 
 end

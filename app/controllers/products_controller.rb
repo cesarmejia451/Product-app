@@ -61,7 +61,6 @@ class ProductsController < ApplicationController
     flash[:warning] = "This beer is removed!"
     redirect_to "/products"
 
-
   end
 
   def random

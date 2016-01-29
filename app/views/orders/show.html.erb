@@ -1,2 +1,7 @@
-<h1><%= @order.quantity %></h1>
-<h1><%= @order.user_id %></h1>
+
+<h2><%= @order.user.email %></h2>
+<h3> Your Order is: <%= @order.id %> </h3>
+<h3> Quantity: <%= @order.quantity %></h3>
+<h4>Subtotal: <%= @order.subtotal %></h4>
+<h4>Tax: <%= @order.tax %></h4>
+<h4>Total: <%= @order.total %></h4>
