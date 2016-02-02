@@ -1,7 +1,10 @@
 <div class="col-md-3">
   <h1><%= @product.name %></h1>
   <h3><%= @product.price %></h3>
-  <h3><img src=<%= @product.image %> style="width:300px;height:300px;"></h3>
+  <p>Images:</p>
+  <% @product.images.each do |image| %>
+    <%= image_tag image.url, class: "img-responsive product-image" %>
+  <% end %>
   <h5><%= @product.description %></h5>
   <br>
 </div>
