@@ -16,6 +16,13 @@ class CartedProductsController < ApplicationController
     
     flash[:success] = "Your cart has been updated!"
     redirect_to "/carted_products"
-    
+  end
+
+  def destroy
+    carted_product = CartedProduct.find(params[:id])
+    carted_product.update(status: "Removed")
+
+    redirect_to "/carted_products"
+
   end
 end

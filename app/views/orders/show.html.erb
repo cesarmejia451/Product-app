@@ -1,12 +1,14 @@
 
-<h2><%= @order.user.email.titleize %></h2>
+<h3><%= @order.user.email.titleize %></h3>
 <h3> Your Order is: <%= @order.id %> </h3>
 
 <h4>Subtotal: <%= number_to_currency(@order.subtotal) %></h4>
 <h4>Tax: <%= number_to_currency(@order.tax) %></h4>
 <h4>Total: <%= number_to_currency(@order.total) %></h4>
 
+<li role="separator" class="divider"></li>
+
 <% @order.carted_products.each do |carted_product| %>
-  <h2><%= carted_product.product.name %> - Qty: <%= carted_product.quantity %></h2>
+  <h4><%= carted_product.product.name %> - Qty: <%= carted_product.quantity %></h4>
 
 <% end %>
